@@ -11,7 +11,7 @@
    secțiunile unui document Word (cross-references, cuprins, bookmark-uri) – sunt actuale și funcționale?
 3. **trimite rezultatele pe email cu un singur buton**.
 
-Autor: Bogdan Murar (Z003FU5C) — Siemens AG · Suport: Teams sau bogdan.murar@siemens.com
+Autor: Bogdan Murar
 
 ---
 
