@@ -2,7 +2,7 @@
 
 <img src="assets/nexusx.png" width="96" align="right" alt="NexusX icon">
 
-**NexusX** este succesorul unificat al **UCeX v6.7** (Universal Code Exporter) și **ULaE v2.0**
+**NexusX** este succesorul unificat al **UCeX v7.0** (Universal Code Exporter, incl. Split & Merge și OneNote Extractor) și **ULaE v2.0**
 (Universal Link Analyzer & Exporter). Un singur tool desktop care:
 
 1. **exportă tot ce se poate dintr-un cod și din pagini web** – ca să poți stabili legăturile dintre
@@ -38,6 +38,8 @@ Export Manager-ul UCeX (`ucex_v6_config.json`), catalogul de surse ULaE și sesi
 | 🕸 **Link Map** | Harta legăturilor dintre tool-uri: URL-uri, importuri, ProjectReference, căi/UNC, DB, SSO/OAuth, COM (Outlook/Excel/SAP), Selenium/Playwright, Apps Script, env vars, endpoint-uri; dependențe proiect→proiect și resurse comune; export MD/JSON/CSV/HTML (cu graf Mermaid) | **nou** |
 | 🔗 **Link Checker** | Extragere din DOCX/PDF/XLSX/PPTX/HTML/MD/TXT, SCAN HTTP paralel, BROWSER VERIFY (headless/vizibil, Edge/Chrome/Chromium), SSO o singură dată, extragere linkuri dintr-o pagină (1–3 niveluri), filtre, editare/observații, rapoarte în 6 formate, **✉ TRIMITE EMAIL** | ULaE |
 | 📂 **Surse SharePoint** | Catalog Excel/JSON de documente SharePoint + fișierul local OneDrive, trimitere în Link Checker | ULaE |
+| ✂ **Split & Merge** | Împarte orice fișier în părți egale sau de dimensiune fixă (KB/MB/GB) cu antet „FISIER MAMA / PARTE / URMĂTOAREA” pentru text; combină părți/fișiere în ordinea aleasă, cu ștergerea marcajelor, verificare SHA-256 și detectarea părților lipsă | UCeX v7 |
+| 📓 **OneNote** | Extrage pachete `.onepkg` (cititor CAB intern → ZIP → cabarchive → expand.exe → 7-Zip) sau secțiuni `.one`: text UTF-16/UTF-8, imagini (și cele lipite în notițe), atașamente, Markdown combinat, raport; „Text extras → Code Export” | UCeX v7 |
 | 🌐 **Web Recorder** | Înregistrare sesiune Selenium (HTML, CSS, JS, rețea, cookies, storage, consolă, DOM, formulare, performanță, WebSocket, screenshot, raport master, ZIP, script replay) | UCeX |
 | ⚙ **Setări** | Temă (Siemens Petrol / Dark / Light), taburi vizibile, filtru extensii, email, tray, dependențe, scurtătură | UCeX + nou |
 | 📋 **Log** | Log live filtrabil, export | UCeX |
@@ -72,6 +74,13 @@ notificări la finalul task-urilor. Opțiuni: X închide în tray, minimizare î
 - split JSON după dimensiunea reală (nu extrapolat din primul fișier), ZIP cu **toate** părțile;
 - Rezumat Folder: imagini cu rezoluție și în HTML/JSON, secțiunea „binare” implementată, excluderile respectate.
 
+**Split & Merge și OneNote (UCeX v7)**
+- split text pe granițe de linie (v7 putea tăia o linie sau un caracter UTF-8 la mijloc); manifest `.split.json` cu SHA-256;
+- merge elimină cu adevărat antetele de split (în v7 regex-ul cerea o linie goală inexistentă, deci antetele rămâneau) — funcționează și pe părți create de v7;
+  verificare byte-cu-byte, părți lipsă raportate, „Adaugă toate părțile unui split”, sortare după numărul părții;
+- OneNote: cititor CAB intern (nu mai depinde de 7-Zip), text din UTF-16 (unde OneNote ține textul paginilor — v7 citea doar UTF-8),
+  imagini decupate din secțiuni, opțiunile „Extrage imagini/atașamente” chiar funcționează, secțiuni `.one` simple acceptate direct.
+
 **Verificare linkuri (ULaE)**
 - DOCX citit direct din OOXML: antete, subsoluri, note de subsol/final, comentarii, casete text, controale de conținut (cuprins),
   **câmpuri HYPERLINK**, **cross-reference REF/PAGEREF/NOTEREF**, intrări TOC (`_Toc`), imagini cu link, INCLUDETEXT/LINK, tabele imbricate;
@@ -93,12 +102,13 @@ notificări la finalul task-urilor. Opțiuni: X închide în tray, minimizare î
 ```
 nexusx/
   codex/      scanner, exporter (split), summary, redact, linkmap, constants
+  tools/      splitmerge, onenote (din UCeX v7)
   links/      models, extractor, checker, browser (Playwright), crawler, reporter, sources
   web/        recorder (Selenium)
   ui/         app, tab_*, theme, widgets, tray
   mailer.py   Outlook / SMTP / .eml
 assets/       nexusx.ico/.png (generat de tools/make_icon.py)
-tests/        test_engine.py, test_ui_smoke.py (GUI headless)
+tests/        test_engine.py, test_tools.py, test_ui_smoke.py (GUI headless)
 ```
 
 Teste: `python -m unittest discover -s tests -v`

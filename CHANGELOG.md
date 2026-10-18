@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 — 2026-10-18 — funcțiile UCeX v7.0
+- Tab nou ✂ Split & Merge (din UCeX v7): split egal/fix KB-MB-GB, antete pentru text, merge cu ordine manuală.
+  Corectat: split text pe granițe de linie, merge care chiar elimină antetele (bug v7), manifest + verificare SHA-256, părți lipsă.
+- Tab nou 📓 OneNote (din UCeX v7): .onepkg/.one → text, imagini, atașamente, raport. Nou: cititor CAB intern, text UTF-16,
+  imagini decupate din secțiuni, Markdown combinat, trimitere în Code Export.
+
 ## 1.0.0 — 2026-10-18 — NexusX (UCeX v6.7 + ULaE v2.0)
 - Unificare UCeX v6.7 (Code Export, Export Manager, Web Recorder) și ULaE v2.0 (Link Checker, SSO, Surse) într-o singură aplicație.
 - Nou: Link Map (legături între tool-uri, resurse comune, graf Mermaid), extragerea linkurilor dintr-o pagină, redactare secrete,

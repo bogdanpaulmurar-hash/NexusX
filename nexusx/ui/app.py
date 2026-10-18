@@ -139,7 +139,7 @@ class NexusXApp(tk.Tk):
         if self._hdr_img:
             tk.Label(hdr, image=self._hdr_img, bg=T["BG1"]).pack(side="left", padx=(14, 6))
         tk.Label(hdr, text=APP_NAME, font=("Segoe UI", 17, "bold"), bg=T["BG1"], fg=T["ACCENT"]).pack(side="left", pady=10)
-        tk.Label(hdr, text=f"  Universal Code & Link eXplorer v{APP_VERSION}  ·  Code Export · Link Map · Link Checker · Web Recorder · Email",
+        tk.Label(hdr, text=f"  Universal Code & Link eXplorer v{APP_VERSION}  ·  Code Export · Link Map · Link Checker · Web Recorder · Split & Merge · OneNote · Email",
                  font=("Segoe UI", 9), bg=T["BG1"], fg=T["TEXT3"]).pack(side="left", pady=10)
         self.ui.btn(hdr, "ℹ Info", self.show_about).pack(side="right", padx=12)
         self.ui.btn(hdr, "✉ Email rapid", self.quick_email, primary=True).pack(side="right", padx=4)
@@ -158,6 +158,7 @@ class NexusXApp(tk.Tk):
         from .tab_code import CodeTab, ManagerTab
         from .tab_linkmap import LinkMapTab
         from .tab_links import LinksTab, SourcesTab
+        from .tab_tools import OneNoteTab, SplitMergeTab
         from .tab_web import WebTab
         from .tab_settings import AboutTab, LogTab, SettingsTab
 
@@ -165,6 +166,7 @@ class NexusXApp(tk.Tk):
         spec = [("code", " 📦 Code Export ", CodeTab), ("manager", " 🚀 Export Manager ", ManagerTab),
                 ("linkmap", " 🕸 Link Map ", LinkMapTab), ("links", " 🔗 Link Checker ", LinksTab),
                 ("sources", " 📂 Surse SharePoint ", SourcesTab), ("web", " 🌐 Web Recorder ", WebTab),
+                ("splitmerge", " ✂ Split & Merge ", SplitMergeTab), ("onenote", " 📓 OneNote ", OneNoteTab),
                 ("settings", " ⚙ Setari ", SettingsTab), ("log", " 📋 Log ", LogTab), ("about", " ℹ Despre ", AboutTab)]
         self.tab_titles = {}
         for key, title, cls in spec:

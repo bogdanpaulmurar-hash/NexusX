@@ -48,7 +48,7 @@ class UISmoke(unittest.TestCase):
 
     def test_build_and_workflows(self):
         app = self.app
-        for name in ("tab_code", "tab_manager", "tab_linkmap", "tab_links", "tab_sources", "tab_web", "tab_settings", "tab_log", "tab_about"):
+        for name in ("tab_code", "tab_manager", "tab_linkmap", "tab_links", "tab_sources", "tab_web", "tab_settings", "tab_log", "tab_about", "tab_splitmerge", "tab_onenote"):
             self.assertTrue(hasattr(app, name), name)
         # code export workflow
         proj = self.home / "proj"
@@ -91,6 +91,37 @@ class UISmoke(unittest.TestCase):
         app.tab_links.compose_email()
         self.pump(2)
         self.assertTrue(list((self.home / "reports").glob("*.eml")))
+        # split & merge + onenote tabs
+        big = self.home / "big.txt"
+        big.write_text("".join(f"line {i}\n" for i in range(30000)))
+        sm = app.tab_splitmerge
+        sm.split_file.set(str(big))
+        sm.split_out.set(str(self.home / "parts"))
+        sm.split_size.set("50")
+        sm.split_unit.set("KB")
+        sm.update_info()
+        sm.do_split()
+        self.pump(2)
+        parts = sorted((self.home / "parts").glob("big_part*"))
+        self.assertGreater(len(parts), 2)
+        sm.merge_files[:] = [str(p) for p in reversed(parts)]
+        sm.sort_parts()
+        sm.merge_out.set(str(self.home / "merged"))
+        sm.merge_name.set("big")
+        sm.do_merge()
+        self.pump(2)
+        self.assertEqual((self.home / "merged" / "big.txt").read_bytes(), big.read_bytes())
+        on = app.tab_onenote
+        one = self.home / "Note.one"
+        one.write_bytes(b"\x00" * 50 + "Hello OneNote world text".encode("utf-16-le") + b"\x00" * 50)
+        on.files[:] = [str(one)]
+        on.out_dir.set(str(self.home / "on"))
+        on.o_open.set(False)
+        on.extract()
+        self.pump(2)
+        self.assertTrue(on.results and on.results[0].ok)
+        on.to_code_export()
+        self.pump(1)
         app.tab_settings._persist_exts()
         app.quick_email()
         self.pump(1)

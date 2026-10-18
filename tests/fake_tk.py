@@ -35,6 +35,9 @@ class W:
     def winfo_children(self):
         return []
 
+    def curselection(self):
+        return ()
+
     def winfo_viewable(self):
         return True
 
@@ -79,6 +82,12 @@ class Var:
 
     def set(self, v):
         self._v = v
+        for cb in getattr(self, "_traces", []):
+            cb()
+
+    def trace_add(self, mode, cb):
+        self.__dict__.setdefault("_traces", []).append(cb)
+        return "trace"
 
 
 class StringVar(Var):

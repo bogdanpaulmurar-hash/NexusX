@@ -59,7 +59,7 @@ class SettingsTab:
         vr = tk.Frame(vf, bg=T["BG2"])
         vr.pack(fill="x", padx=8, pady=8)
         vis = cfg.get("visible_tabs", {}) or {}
-        for key in ("manager", "linkmap", "links", "sources", "web"):
+        for key in ("manager", "linkmap", "links", "sources", "web", "splitmerge", "onenote"):
             v = tk.BooleanVar(value=vis.get(key, True))
             ui.chk(vr, self.app.tab_titles[key].strip(), v, command=lambda k=key, var=v: self.app.set_tab_visible(k, var.get())).pack(side="left", padx=8)
 
