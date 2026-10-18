@@ -6,9 +6,9 @@ Toate sursele provin din Google Drive-ul autorului, folderul **UCeX**
 | Sursă (Drive) | Versiune | Folosită pentru |
 |---|---|---|
 | `UCeX/UCeX_v7.py` | UCeX 7.0, 27.08.2026 — confirmat de autor ca versiunea bună | Split & Merge, OneNote Extractor (singurele diferențe funcționale față de 6.7; motorul de export e identic) |
-| `UCeX/UCeX_v6_Siemens/UCeX_v6.7.py` (+ `README.md`, `requirements.txt`, `run_UCeX_v6.bat`) | UCeX 6.7, 26.08.2026 | Code Export, Export Manager, Web Recorder, Settings, Log, teme, filtru extensii, split, rezumat folder, perechi implicite (cod comun cu v7) |
-| `UCeX/ULaE__Siemens/GPT-5.6 Luna/ULaE_v2.0/` — `app.py`, `models.py`, `extractor.py`, `checker.py`, `exporter.py`, `mail_sender.py`, `sources_manager.py`, `README.md`, `CHANGELOG.md`, `requirements.txt` | ULaE 2.0, 07–08.10.2026 — cea mai nouă versiune ULaE găsită | Link Checker, Browser/SSO (Playwright), rapoarte, email Outlook, Surse SharePoint |
-| `UCeX/ULaE__Siemens/GPT-5.6 Luna & Gemini 3.8 Flash/` | — | Folderul indicat ca „ultimele versiuni” apare **gol** prin API-ul Drive; versiunea 2.0 de mai sus (același ansamblu GPT-5.6 Luna & Gemini 3.8 Flash, conform README-ului ei) a fost tratată ca ultima |
+| `UCeX/UCeX_v6_…/UCeX_v6.7.py` (+ `README.md`, `requirements.txt`, `run_UCeX_v6.bat`) | UCeX 6.7, 26.08.2026 | Code Export, Export Manager, Web Recorder, Settings, Log, teme, filtru extensii, split, rezumat folder, perechi implicite (cod comun cu v7) |
+| `UCeX/ULaE_…/GPT-5.6 Luna/ULaE_v2.0/` — `app.py`, `models.py`, `extractor.py`, `checker.py`, `exporter.py`, `mail_sender.py`, `sources_manager.py`, `README.md`, `CHANGELOG.md`, `requirements.txt` | ULaE 2.0, 07–08.10.2026 — cea mai nouă versiune ULaE găsită | Link Checker, Browser/SSO (Playwright), rapoarte, email Outlook, Surse SharePoint |
+| `UCeX/ULaE_…/GPT-5.6 Luna & Gemini 3.8 Flash/` | — | Folderul indicat ca „ultimele versiuni” apare **gol** prin API-ul Drive; versiunea 2.0 de mai sus (același ansamblu GPT-5.6 Luna & Gemini 3.8 Flash, conform README-ului ei) a fost tratată ca ultima |
 | `ClaudeV4.5Haiku/UCeX_v7_0.py` (5 KB), `link checker/link_checker.py` | variante experimentale | neincluse |
 
 ## Mapare modul NexusX → sursă

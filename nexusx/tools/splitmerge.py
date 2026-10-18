@@ -120,7 +120,7 @@ def text_header(src_name: str, src_size: int, i: int, n: int, name: str, next_na
              f" FISIER PARTE  : {name}",
              f" URMATOAREA    : {next_name}" if next_name else " URMATOAREA    : (aceasta este ultima parte)",
              f" DATA SPLIT    : {datetime.datetime.now():%Y-%m-%d %H:%M:%S}",
-             f" TOOL          : {APP_NAME} v{APP_VERSION} | Siemens AG | ACP-2"]
+             f" TOOL          : {APP_NAME} v{APP_VERSION} | ACP-2"]
     if i > 1:
         lines += [" NOTA          : Aceasta este o CONTINUARE a fisierului mama.",
                   f"                 Continutul incepe de unde s-a terminat partea {i - 1}."]

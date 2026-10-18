@@ -84,7 +84,7 @@ class LinksTab:
         cb = ttk.Combobox(r2, textvariable=self.channel, values=["chromium", "msedge", "chrome"], state="readonly", width=9)
         cb.pack(side="left")
         cb.bind("<<ComboboxSelected>>", lambda e: self._save_prefs())
-        ui.tooltip(cb, "msedge = Microsoft Edge cu identitatea dispozitivului (SSO mai usor in retea Siemens)")
+        ui.tooltip(cb, "msedge = Microsoft Edge cu identitatea dispozitivului (SSO mai usor in reteaua companiei)")
         ui.label(r2, "URL direct:").pack(side="left", padx=(14, 4))
         en = ui.entry(r2, self.manual_url, width=40)
         en.pack(side="left", fill="x", expand=True, padx=4)

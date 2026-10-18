@@ -388,7 +388,7 @@ class AboutTab:
         box.pack(side="left", fill="x")
         tk.Label(box, text=f"{APP_NAME} v{APP_VERSION} — Universal Code & Link eXplorer", font=("Segoe UI", 15, "bold"),
                  bg=T["BG3"], fg=T["ACCENT"]).pack(anchor="w")
-        tk.Label(box, text=f"Succesorul unificat al {APP_LINEAGE} · Siemens AG", bg=T["BG3"], fg=T["TEXT2"]).pack(anchor="w")
+        tk.Label(box, text=f"Succesorul unificat al {APP_LINEAGE}", bg=T["BG3"], fg=T["TEXT2"]).pack(anchor="w")
         desc = tk.Frame(c, bg=T["BG3"], padx=20, pady=16)
         desc.pack(fill="x", pady=(0, 14))
         texts = [
@@ -406,7 +406,7 @@ class AboutTab:
             tk.Label(desc, text=t, bg=T["BG3"], fg=T["TEXT2"], wraplength=1100, justify="left").pack(anchor="w", pady=(2, 10))
         meta = tk.Frame(c, bg=T["BG3"], padx=20, pady=16)
         meta.pack(fill="x")
-        for k, v in (("👤 Autor:", AUTHOR), ("✉ Suport:", f"Teams sau {CONTACT}"),
+        for k, v in (("👤 Autor:", AUTHOR), ("✉ Suport:", f"Teams{(' sau ' + CONTACT) if CONTACT else ''}"),
                      ("🐙 GitHub:", "https://github.com/bogdanpaulmurar-hash/UCeX-_-ULeX")):
             row = tk.Frame(meta, bg=T["BG3"])
             row.pack(fill="x", pady=3)

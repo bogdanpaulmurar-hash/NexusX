@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Themes: Siemens Petrol (ULaE look, default) + Catppuccin Dark/Light (UCeX look)."""
+"""Themes: Petrol (ULaE look, default) + Catppuccin Dark/Light (UCeX look)."""
 from __future__ import annotations
 
 from tkinter import ttk
@@ -27,7 +27,7 @@ THEMES = {
         "SEP": "#ccd0da", "ORANGE": "#fe640b", "ROW_ALT": "#eef0f4",
     },
 }
-THEME_LABELS = {"petrol": "🟦 Siemens Petrol", "dark": "🌙 Dark (Catppuccin)", "light": "☀️ Light (Catppuccin)"}
+THEME_LABELS = {"petrol": "🟦 Petrol", "dark": "🌙 Dark (Catppuccin)", "light": "☀️ Light (Catppuccin)"}
 
 STATUS_TAG_COLORS = {  # foreground per status group for treeviews
     "ok": "GREEN", "broken": "RED", "auth": "ORANGE", "download": "TEAL", "warn": "YELLOW", "pending": "TEXT3",

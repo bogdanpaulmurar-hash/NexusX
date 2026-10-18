@@ -41,12 +41,12 @@ Export Manager-ul UCeX (`ucex_v6_config.json`), catalogul de surse ULaE și sesi
 | ✂ **Split & Merge** | Împarte orice fișier în părți egale sau de dimensiune fixă (KB/MB/GB) cu antet „FISIER MAMA / PARTE / URMĂTOAREA” pentru text; combină părți/fișiere în ordinea aleasă, cu ștergerea marcajelor, verificare SHA-256 și detectarea părților lipsă | UCeX v7 |
 | 📓 **OneNote** | Extrage pachete `.onepkg` (cititor CAB intern → ZIP → cabarchive → expand.exe → 7-Zip) sau secțiuni `.one`: text UTF-16/UTF-8, imagini (și cele lipite în notițe), atașamente, Markdown combinat, raport; „Text extras → Code Export” | UCeX v7 |
 | 🌐 **Web Recorder** | Înregistrare sesiune Selenium (HTML, CSS, JS, rețea, cookies, storage, consolă, DOM, formulare, performanță, WebSocket, screenshot, raport master, ZIP, script replay) | UCeX |
-| ⚙ **Setări** | Temă (Siemens Petrol / Dark / Light), taburi vizibile, filtru extensii, email, tray, dependențe, scurtătură | UCeX + nou |
+| ⚙ **Setări** | Temă (Petrol / Dark / Light), taburi vizibile, filtru extensii, email, tray, dependențe, scurtătură | UCeX + nou |
 | 📋 **Log** | Log live filtrabil, export | UCeX |
 
 ### Butonul de email
 Configurare în **Setări → Email**:
-- **Outlook** (implicit, ca în ULaE): mailul se deschide gata completat (tabel HTML Siemens + toate rapoartele atașate);
+- **Outlook** (implicit, ca în ULaE): mailul se deschide gata completat (tabel HTML stilizat + toate rapoartele atașate);
   opțional *trimite direct*.
 - **SMTP**: server/port/STARTTLS; parola se cere o dată și se păstrează în Windows Credential Manager (`keyring`), niciodată în config.
 - **.eml**: fișier gata de trimis, deschis în clientul implicit — funcționează și fără Outlook/pywin32.
@@ -67,7 +67,7 @@ notificări la finalul task-urilor. Opțiuni: X închide în tray, minimizare î
 **Export cod (UCeX)**
 - un singur motor de randare pentru export normal și split (v6.7 avea două copii divergente: în split numerotarea liniilor era forțată, MD5 mereu calculat);
 - antet „Parte N/M” exact (v6.7 scria „(estimat…)”), cuprins și în `.md`/`.html` (clicabil), statistici pe extensii (opțiunea „Stats” exista dar nu făcea nimic);
-- **redactare secrete** (parole, tokenuri, chei API, connection strings, JWT, credențiale în URL) — sigur de lipit în SiemensGPT/Claude;
+- **redactare secrete** (parole, tokenuri, chei API, connection strings, JWT, credențiale în URL) — sigur de lipit într-un asistent AI;
 - fișierele binare sunt listate dar nu mai umplu exportul cu gunoi; opțiunea „Include binare” (inactivă în v6.7) funcționează;
 - Dockerfile/Makefile/requirements.txt sunt recunoscute (v6.7 le lista dar nu le putea potrivi după sufix);
 - scanare `os.scandir` + MD5/linii în paralel (UI-ul nu mai îngheață pe foldere mari OneDrive), `.gitignore` opțional;

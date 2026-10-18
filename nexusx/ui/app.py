@@ -305,7 +305,7 @@ class NexusXApp(tk.Tk):
     def show_about(self) -> None:
         messagebox.showinfo(f"Despre {APP_NAME}", (
             f"{APP_LONG_NAME} v{APP_VERSION}\nSuccesorul combinat al {APP_LINEAGE}\n\n"
-            f"Autor: {AUTHOR}\nSuport: Teams sau {CONTACT}\n\n"
+            f"Autor: {AUTHOR}\nSuport: Teams{(' sau ' + CONTACT) if CONTACT else ''}\n\n"
             "• Export cod complet (txt/md/html/json, split, ZIP, rezumat folder, redactare secrete)\n"
             "• Link Map: legaturile dintre tool-uri, URL-uri, cai, DB, SSO, automatizari\n"
             "• Link Checker: DOCX/PDF/XLSX/PPTX/HTML/MD, cross-references Word, crawl pagina,\n"
