@@ -52,7 +52,7 @@ DEFAULTS: Dict[str, Any] = {
     },
     # tray / window
     "tray_enabled": True,
-    "close_to_tray": False,
+    "close_to_tray": True,           # X hides the window in the tray (Exit from the tray menu)
     "minimize_to_tray": False,
     "notify_on_finish": True,
     "geometry": "1480x900",
@@ -83,6 +83,9 @@ class ConfigManager:
                     merged[k].update(v)
                 else:
                     merged[k] = v
+            if int(merged.get("config_rev", 1)) < 2:  # 1.1.1: X closes to the tray by default
+                merged["close_to_tray"] = True
+                merged["config_rev"] = 2
             self._data = merged
 
     def _migrate_legacy(self) -> Dict[str, Any]:

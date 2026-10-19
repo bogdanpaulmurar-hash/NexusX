@@ -25,6 +25,8 @@ from .models import LinkRecord
 
 Log = Optional[Callable[[str], None]]
 
+MFA_WAIT_SEC = 180  # visible browser: time to confirm the 2-factor login (e.g. on the phone)
+
 
 def playwright_available() -> bool:
     try:
@@ -100,6 +102,7 @@ class BrowserEngine:
             rec.response_ms = int((time.perf_counter() - t0) * 1000)
 
             deadline = time.time() + min(timeout_sec, 20)
+            waited_login = False
             done = False
             while time.time() < deadline:
                 if download_event[0]:
@@ -128,7 +131,11 @@ class BrowserEngine:
                         rec.error = "Requires user SSO login session"
                         done = True
                         break
-                    time.sleep(1.0)  # interactive: wait for the user to finish MFA
+                    if not waited_login:  # interactive: give the user time to confirm MFA on another device
+                        waited_login = True
+                        deadline = max(deadline, time.time() + MFA_WAIT_SEC)
+                        log(f"[BROWSER] Login / MFA required — waiting up to {MFA_WAIT_SEC} s for you to finish it in the browser window…")
+                    time.sleep(1.0)
                     continue
                 title = page.title()
                 try:

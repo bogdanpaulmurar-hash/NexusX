@@ -19,10 +19,12 @@ Autor: Bogdan Murar
 
 ```bat
 install_deps.bat      :: o singura data — pachete Python + Chromium pentru Playwright
-run_NexusX.bat        :: porneste aplicatia (fara consola: dublu-click pe NexusX.pyw)
+NexusX.vbs            :: porneste aplicatia FARA nicio fereastra cmd (recomandat)
+run_NexusX.bat        :: alternativ (fereastra cmd apare o clipa)
 ```
 
-Sau: `python -m nexusx` (opțional `--minimized` → pornește direct în tray).
+Sau: `python -m nexusx` (opțional `--minimized` → pornește direct în tray; merge și `NexusX.vbs --minimized`).
+Butonul **X** ascunde fereastra în tray; ieșirea se face din meniul tray → *Ieșire* (dezactivabil în Setări → Tray).
 În **Setări → Creează scurtătură Desktop** obții un `.lnk` cu iconul NexusX; click dreapta → *Pin to taskbar*.
 
 Configurația și log-ul: `%USERPROFILE%\.nexusx\`. La prima pornire sunt preluate automat perechile din
@@ -57,7 +59,8 @@ Butoane: *✉ TRIMITE EMAIL CU RAPORTUL* (Link Checker), *✉ Exportă + Email* 
 ### Taskbar + tray
 Icon propriu în taskbar (AppUserModelID setat → Windows nu mai grupează fereastra sub iconul Python) și în
 system tray (`pystray`): Arată/Ascunde, Scan+Export, Export Manager, Verifică linkuri, Link Map, Email, Folder rapoarte, Ieșire;
-notificări la finalul task-urilor. Opțiuni: X închide în tray, minimizare în tray.
+notificări la finalul task-urilor. Opțiuni: X închide în tray (implicit activ), minimizare în tray.
+Fără `pystray` + `Pillow` instalate nu există tray, iar X închide aplicația.
 
 ### Scurtături
 `Ctrl+O` folder · `F5` scan · `Ctrl+S` export · `Ctrl+E` email · `Ctrl+L` șterge log

@@ -1,5 +1,11 @@
 # Changelog
 
+## Nelansat — Link Checker: autentificare SSO / MFA
+- Browserul vizibil așteaptă acum până la 180 s confirmarea MFA de pe alt dispozitiv; înainte renunța după ~20 s.
+  Logarea rămâne ca în ULaE v2.0 (profil persistent + 🔑 SSO LOGIN o dată).
+- Pornire fără fereastră cmd: `NexusX.vbs` (acceptă `--minimized`).
+- Butonul X trimite aplicația în tray în mod implicit (și pentru configurațiile existente); ieșire din meniul tray.
+
 ## 1.1.0 — 2026-10-18 — funcțiile UCeX v7.0
 - Tab nou ✂ Split & Merge (din UCeX v7): split egal/fix KB-MB-GB, antete pentru text, merge cu ordine manuală.
   Corectat: split text pe granițe de linie, merge care chiar elimină antetele (bug v7), manifest + verificare SHA-256, părți lipsă.
