@@ -20,7 +20,7 @@ Succesorul unificat al UCeX v7 (export de cod și pagini web, Split & Merge, One
 - Toate funcțiile din UCeX v7 și ULaE v2 trebuie păstrate; versiunile vechi sunt în folderul Google Drive „UCeX”, ca referință.
 - Fără `.exe`: Python pornit cu `pythonw`, icon propriu în taskbar și tray.
 - Certificatele firmei prin `truststore`; parolele doar în keyring, niciodată în config sau log.
-- De făcut: redenumirea repo-ului în NexusX.
+- Repo-ul a fost redenumit din `UCeX-_-ULeX` în `NexusX`.
 - Commit-uri în engleză; README și răspunsurile către utilizator în română.
 - Documentație și UI vizibile: fără numele angajatorului, e-mailuri de firmă, ID-uri sau numere interne (au fost scoase pe 18.10 — nu le reintroduce).
 
